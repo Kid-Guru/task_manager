@@ -3,8 +3,8 @@ FactoryBot.define do
     first_name
     last_name
     password
-    email { "MyString" }
-    avatar { "MyString" }
+    email
+    avatar
     type { "" }
   end
 
@@ -12,8 +12,8 @@ FactoryBot.define do
     first_name
     last_name
     password
-    email { "MyString" }
-    avatar { "MyString" }
+    email
+    avatar
     type { "Developer" }
   end
 
@@ -21,8 +21,8 @@ FactoryBot.define do
     first_name
     last_name
     password
-    email { "MyString" }
-    avatar { "MyString" }
+    email
+    avatar
     type { "Admin" }
   end
 
@@ -30,8 +30,8 @@ FactoryBot.define do
     first_name
     last_name
     password
-    email { "MyString" }
-    avatar { "MyString" }
+    email
+    avatar
     type { "Manager" }
   end
 end
