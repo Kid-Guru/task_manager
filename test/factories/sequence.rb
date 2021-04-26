@@ -6,7 +6,7 @@ FactoryBot.define do
     "person#{n}@example.com"
   end
   sequence :avatar do |n|
-    "person#{n}@example.com"
+    "urlrandom#{n}"
   end
   sequence :name do |n|
     "task#{n}"
