@@ -3,7 +3,6 @@ require_relative '../config/environment'
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
-  include AuthHelper
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
@@ -12,4 +11,5 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   include FactoryBot::Syntax::Methods
+  include AuthHelper
 end

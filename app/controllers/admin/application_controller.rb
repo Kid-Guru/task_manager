@@ -1,5 +1,6 @@
 class Admin::ApplicationController < ApplicationController
-  include Concerns::AuthHelper
+  include AuthHelper
+  helper_method :current_user
   before_action :authenticate_user!, :authorize
 
   def authorize
