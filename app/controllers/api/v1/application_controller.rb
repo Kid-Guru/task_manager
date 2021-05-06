@@ -1,4 +1,4 @@
-class V1::ApplicationController < API::ApplicationController
+class V1::ApplicationController < Api::ApplicationController
   RANSACK_DEFAULT_SORT = 'id ASC'
 
   def build_meta(collection)
