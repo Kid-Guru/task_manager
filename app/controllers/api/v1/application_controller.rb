@@ -1,4 +1,4 @@
-class V1::ApplicationController <  API::ApplicationController
+class V1::ApplicationController < API::ApplicationController
   RANSACK_DEFAULT_SORT = 'id ASC'
 
   def build_meta(collection)
@@ -7,7 +7,7 @@ class V1::ApplicationController <  API::ApplicationController
       total_count: collection.total_count,
       current_page: collection.current_page,
       total_pages: collection.total_pages,
-      per_page: collection.limit_value
+      per_page: collection.limit_value,
     }
   end
 
