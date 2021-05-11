@@ -15,9 +15,9 @@ FactoryBot.define do
     "description task#{n}"
   end
   sequence :state do
-    'new_task'
+    :new_task
   end
   sequence :expired_at do
-    (Date.today + 7).to_s
+    (Date.today + 7).to_date
   end
 end
