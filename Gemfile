@@ -68,4 +68,5 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'responders'
 gem 'active_model_serializers'
 
+gem 'webpacker-react'
 gem 'js-routes'
