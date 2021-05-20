@@ -17,8 +17,8 @@ export default {
     return FetchHelper.put(path, task);
   },
 
-  create(id, task = {}) {
-    const path = routes.apiV1TaskPath(id);
+  create(task = {}) {
+    const path = routes.apiV1TaskPath();
     return FetchHelper.post(path, task);
   },
 
