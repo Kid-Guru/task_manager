@@ -8,19 +8,17 @@ import {
   IconButton,
   Modal,
 } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
 import { isNil } from 'ramda';
 import React, { useEffect, useState } from 'react';
-import Form from './components/Form';
+import Form from './Form';
 import useStyles from './useStyles';
-
-
 
 const EditPopup = ({ cardId, onClose, onCardDestroy, onLoadCard, onCardUpdate }) => {
   const [task, setTask] = useState(null);
   const [isSaving, setSaving] = useState(false);
   const [errors, setErrors] = useState({});
-  const [openedTaskId, setOpenedTaskId] = useState(null);
   const styles = useStyles();
 
   useEffect(() => {
@@ -98,8 +96,8 @@ const EditPopup = ({ cardId, onClose, onCardDestroy, onLoadCard, onCardUpdate })
 
 EditPopup.propTypes = {
   onLoadCard: PropTypes.func.isRequired,
-  onDestroyCard: PropTypes.func.isRequired,
-  onUpdateCard: PropTypes.func.isRequired,
+  onCardDestroy: PropTypes.func.isRequired,
+  onCardUpdate: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
   cardId: PropTypes.number.isRequired,
 };

@@ -134,12 +134,11 @@ const TaskBoard = () => {
     });
   };
 
-  const handleTaskDestroy = (task) => {
+  const handleTaskDestroy = (task) =>
     TasksRepository.destroy(task.id).then(() => {
       loadColumnInitial(task.state);
       handleClose();
     });
-  };
 
   useEffect(() => loadBoard(), []);
   useEffect(() => generateBoard(), [boardCards]);
@@ -162,8 +161,8 @@ const TaskBoard = () => {
       {mode === MODES.EDIT && (
         <EditPopup
           onLoadCard={loadTask}
-          onDestroyCard={handleTaskDestroy}
-          onUpdateCard={handleTaskUpdate}
+          onCardDestroy={handleTaskDestroy}
+          onCardUpdate={handleTaskUpdate}
           onClose={handleClose}
           cardId={openedTaskId}
         />
