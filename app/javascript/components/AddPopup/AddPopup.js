@@ -16,14 +16,14 @@ import TaskForm from 'forms/TaskForm';
 
 import useStyles from './useStyles';
 
-const AddPopup = ({ onClose, onCreateCard }) => {
+const AddPopup = ({ onClose, onCardCreate }) => {
   const [task, changeTask] = useState(TaskForm.defaultAttributes());
   const [isSaving, setSaving] = useState(false);
   const [errors, setErrors] = useState({});
-  const handleCreate = () => {
+  const handleTaskCreate = () => {
     setSaving(true);
 
-    onCreateCard(task).catch((error) => {
+    onCardCreate(task).catch((error) => {
       setSaving(false);
       setErrors(error || {});
 
@@ -32,7 +32,7 @@ const AddPopup = ({ onClose, onCreateCard }) => {
       }
     });
   };
-  const handleChangeTextField = (fieldName) => (event) => changeTask({ ...task, [fieldName]: event.target.value });
+  const handleChangeTextField = ({ target: { name, value } }) => changeTask({ ...task, [name]: value });
   const styles = useStyles();
 
   return (
@@ -51,7 +51,8 @@ const AddPopup = ({ onClose, onCreateCard }) => {
             <TextField
               error={has('name', errors)}
               helperText={errors.name}
-              onChange={handleChangeTextField('name')}
+              onChange={handleChangeTextField}
+              name="name"
               value={task.name}
               label="Name"
               required
@@ -60,7 +61,8 @@ const AddPopup = ({ onClose, onCreateCard }) => {
             <TextField
               error={has('description', errors)}
               helperText={errors.description}
-              onChange={handleChangeTextField('description')}
+              onChange={handleChangeTextField}
+              name="description"
               value={task.description}
               label="Description"
               required
@@ -69,7 +71,7 @@ const AddPopup = ({ onClose, onCreateCard }) => {
           </div>
         </CardContent>
         <CardActions className={styles.actions}>
-          <Button disabled={isSaving} onClick={handleCreate} variant="contained" size="small" color="primary">
+          <Button disabled={isSaving} onClick={handleTaskCreate} variant="contained" size="small" color="primary">
             Add
           </Button>
         </CardActions>
@@ -80,7 +82,7 @@ const AddPopup = ({ onClose, onCreateCard }) => {
 
 AddPopup.propTypes = {
   onClose: PropTypes.func.isRequired,
-  onCreateCard: PropTypes.func.isRequired,
+  onCardCreate: PropTypes.func.isRequired,
 };
 
 export default AddPopup;

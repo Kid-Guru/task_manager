@@ -16,9 +16,9 @@ const ColumnHeader = ({ column, onLoadMore }) => {
     meta: { totalCount, currentPage },
   } = column;
 
-  const count = cards.length;
+  const { length: count } = cards;
 
-  const handleLoadMore = () => onLoadMore(id, currentPage + 1);
+  const handleMoreLoad = () => onLoadMore(id, currentPage + 1);
 
   return (
     <div className={styles.root}>
@@ -27,7 +27,7 @@ const ColumnHeader = ({ column, onLoadMore }) => {
       </div>
       <div className={styles.actions}>
         {totalCount === currentPage && (
-          <IconButton aria-label="Load more" onClick={() => handleLoadMore()}>
+          <IconButton aria-label="Load more" onClick={() => handleMoreLoad()}>
             <SystemUpdateAltIcon fontSize="small" />
           </IconButton>
         )}

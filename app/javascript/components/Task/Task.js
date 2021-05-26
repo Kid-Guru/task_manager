@@ -13,9 +13,9 @@ import useStyles from './useStyles';
 const Task = ({ task, onClick }) => {
   const styles = useStyles();
 
-  const handleClick = () => onClick(task);
+  const handleTaskClick = () => onClick(task);
   const action = (
-    <IconButton onClick={handleClick}>
+    <IconButton onClick={handleTaskClick}>
       <EditIcon />
     </IconButton>
   );

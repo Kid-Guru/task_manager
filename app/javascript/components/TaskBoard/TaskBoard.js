@@ -70,16 +70,14 @@ const TaskBoard = () => {
   };
 
   const generateBoard = () => {
-    const boardGen = {
+    setBoard({
       columns: STATES.map(({ key, value }) => ({
         id: key,
         title: value,
         cards: propOr({}, 'cards', boardCards[key]),
         meta: propOr({}, 'meta', boardCards[key]),
       })),
-    };
-
-    setBoard(boardGen);
+    });
   };
 
   const loadBoard = () => {
@@ -140,8 +138,8 @@ const TaskBoard = () => {
       handleClose();
     });
 
-  useEffect(() => loadBoard(), []);
-  useEffect(() => generateBoard(), [boardCards]);
+  useEffect(loadBoard, []);
+  useEffect(generateBoard, [boardCards]);
 
   const styles = useStyles();
 
@@ -157,10 +155,10 @@ const TaskBoard = () => {
       <Fab className={styles.addButton} color="primary" aria-label="add" onClick={handleOpenAddPopup}>
         <AddIcon />
       </Fab>
-      {mode === MODES.ADD && <AddPopup onCreateCard={handleTaskCreate} onClose={handleClose} />}
+      {mode === MODES.ADD && <AddPopup onCardCreate={handleTaskCreate} onClose={handleClose} />}
       {mode === MODES.EDIT && (
         <EditPopup
-          onLoadCard={loadTask}
+          onCardLoad={loadTask}
           onCardDestroy={handleTaskDestroy}
           onCardUpdate={handleTaskUpdate}
           onClose={handleClose}
