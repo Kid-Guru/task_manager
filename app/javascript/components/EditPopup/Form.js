@@ -14,7 +14,7 @@ const Form = ({ errors, onChange, task }) => {
   const styles = useStyles();
 
   return (
-    <form className={styles.root}>
+    <form className={styles.form}>
       <TextField
         error={has('name', errors)}
         helperText={errors.name}
