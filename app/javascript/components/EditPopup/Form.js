@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { has } from 'ramda';
 
 import TextField from '@material-ui/core/TextField';
+import UserSelect from '../UserSelect/UserSelect';
 
 import useStyles from './useStyles';
 
 const Form = ({ errors, onChange, task }) => {
-  const handleTextFieldChange = ({ target: { name, value } }) => onChange({ ...task, [name]: value });
+  const handleChangeTextField = ({ target: { name, value } }) => onChange({ ...task, [name]: value });
+  const handleChangeSelect = (fieldName) => (user) => onChange({ ...task, [fieldName]: user });
   const styles = useStyles();
 
   return (
@@ -15,7 +17,7 @@ const Form = ({ errors, onChange, task }) => {
       <TextField
         error={has('name', errors)}
         helperText={errors.name}
-        onChange={handleTextFieldChange}
+        onChange={handleChangeTextField}
         name="name"
         value={task.name}
         label="Name"
@@ -25,13 +27,30 @@ const Form = ({ errors, onChange, task }) => {
       <TextField
         error={has('description', errors)}
         helperText={errors.description}
-        onChange={handleTextFieldChange}
+        onChange={handleChangeTextField}
         name="description"
         value={task.description}
         label="Description"
         required
         multiline
         margin="dense"
+      />
+      <UserSelect
+        label="Author"
+        value={TaskPresenter.author(task)}
+        onChange={handleChangeSelect('author')}
+        isDisabled
+        isRequired
+        error={has('author', errors)}
+        helperText={errors.author}
+      />
+      <UserSelect
+        label="Assignee"
+        value={TaskPresenter.assignee(task)}
+        onChange={handleChangeSelect('assignee')}
+        isRequired
+        error={has('assignee', errors)}
+        helperText={errors.assignee}
       />
     </form>
   );
