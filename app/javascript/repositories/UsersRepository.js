@@ -11,4 +11,4 @@ export default {
     const path = routes.apiV1TaskPath(id);
     return FetchHelper.get(path);
   },
-}
+};
