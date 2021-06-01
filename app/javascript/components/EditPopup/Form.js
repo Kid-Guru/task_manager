@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import UserSelect from '../UserSelect/UserSelect';
 
 import useStyles from './useStyles';
+import TaskPresenter from '../../presenters/TaskPresenter';
 
 const Form = ({ errors, onChange, task }) => {
   const handleChangeTextField = ({ target: { name, value } }) => onChange({ ...task, [name]: value });
@@ -19,7 +20,7 @@ const Form = ({ errors, onChange, task }) => {
         helperText={errors.name}
         onChange={handleChangeTextField}
         name="name"
-        value={task.name}
+        value={TaskPresenter.name(task)}
         label="Name"
         required
         margin="dense"
@@ -29,7 +30,7 @@ const Form = ({ errors, onChange, task }) => {
         helperText={errors.description}
         onChange={handleChangeTextField}
         name="description"
-        value={task.description}
+        value={TaskPresenter.description(task)}
         label="Description"
         required
         multiline
