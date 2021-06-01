@@ -11,8 +11,8 @@ import AddPopup from 'components/AddPopup';
 import TaskForm from 'forms/TaskForm';
 import TasksRepository from 'repositories/TasksRepository';
 
-import TaskPresenter from '../../presenters/TaskPresenter';
-import EditPopup from '../EditPopup/EditPopup';
+import TaskPresenter from 'presenters/TaskPresenter';
+import EditPopup from 'components/EditPopup';
 import useStyles from './useStyles';
 
 const STATES = [

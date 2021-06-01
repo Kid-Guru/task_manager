@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import UserSelect from '../UserSelect/UserSelect';
 
 import useStyles from './useStyles';
-import TaskPresenter from '../../presenters/TaskPresenter';
+import TaskPresenter from 'presenters/TaskPresenter';
 
 const Form = ({ errors, onChange, task }) => {
   const handleChangeTextField = ({ target: { name, value } }) => onChange({ ...task, [name]: value });
