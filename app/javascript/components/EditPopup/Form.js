@@ -7,7 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import useStyles from './useStyles';
 
 const Form = ({ errors, onChange, task }) => {
-  const handleChangeTextField = ({ target: { name, value } }) => onChange({ ...task, [name]: value });
+  const handleTextFieldChange = ({ target: { name, value } }) => onChange({ ...task, [name]: value });
   const styles = useStyles();
 
   return (
@@ -15,7 +15,7 @@ const Form = ({ errors, onChange, task }) => {
       <TextField
         error={has('name', errors)}
         helperText={errors.name}
-        onChange={handleChangeTextField}
+        onChange={handleTextFieldChange}
         name="name"
         value={task.name}
         label="Name"
@@ -25,7 +25,7 @@ const Form = ({ errors, onChange, task }) => {
       <TextField
         error={has('description', errors)}
         helperText={errors.description}
-        onChange={handleChangeTextField}
+        onChange={handleTextFieldChange}
         name="description"
         value={task.description}
         label="Description"
