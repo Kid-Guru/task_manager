@@ -12,7 +12,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
 import { isNil } from 'ramda';
 import React, { useEffect, useState } from 'react';
-import TaskPresenter from '../../presenters/TaskPresenter';
+import TaskPresenter from 'presenters/TaskPresenter';
 import Form from './Form';
 import useStyles from './useStyles';
 

@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import { has } from 'ramda';
 
 import TextField from '@material-ui/core/TextField';
-import UserSelect from '../UserSelect/UserSelect';
-
-import useStyles from './useStyles';
+import UserSelect from 'components/UserSelect';
 import TaskPresenter from 'presenters/TaskPresenter';
+import useStyles from './useStyles';
 
 const Form = ({ errors, onChange, task }) => {
   const handleChangeTextField = ({ target: { name, value } }) => onChange({ ...task, [name]: value });
@@ -40,7 +39,6 @@ const Form = ({ errors, onChange, task }) => {
         label="Author"
         value={TaskPresenter.author(task)}
         onChange={handleChangeSelect('author')}
-        isDisabled
         isRequired
         error={has('author', errors)}
         helperText={errors.author}
