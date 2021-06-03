@@ -8,7 +8,7 @@ export default {
   },
 
   show(id) {
-    const path = routes.apiV1UsersPath(id);
+    const path = routes.apiV1UserPath(id);
     return FetchHelper.get(path);
   },
 };
