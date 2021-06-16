@@ -16,14 +16,14 @@ import TaskForm from 'forms/TaskForm';
 
 import useStyles from './useStyles';
 
-const AddPopup = ({ onClose, onCardCreate }) => {
+const AddPopup = ({ onClose, onCreateCard }) => {
   const [task, changeTask] = useState(TaskForm.defaultAttributes());
   const [isSaving, setSaving] = useState(false);
   const [errors, setErrors] = useState({});
   const handleTaskCreate = () => {
     setSaving(true);
 
-    onCardCreate(task).catch((error) => {
+    onCreateCard(task).catch((error) => {
       setSaving(false);
       setErrors(error || {});
 
@@ -82,7 +82,7 @@ const AddPopup = ({ onClose, onCardCreate }) => {
 
 AddPopup.propTypes = {
   onClose: PropTypes.func.isRequired,
-  onCardCreate: PropTypes.func.isRequired,
+  onCreateCard: PropTypes.func.isRequired,
 };
 
 export default AddPopup;
