@@ -121,7 +121,7 @@ const TaskBoard = () => {
   const handleTaskCreate = (params) => {
     const attributes = TaskForm.attributesToSubmit(params);
     return TasksRepository.create(attributes).then(({ data: { task } }) => {
-      Initial(TaskPresenter.state(task));
+      loadColumn(TaskPresenter.state(task));
       handleClose();
     });
   };
